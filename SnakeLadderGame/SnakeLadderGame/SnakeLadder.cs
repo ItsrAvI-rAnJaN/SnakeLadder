@@ -8,22 +8,37 @@ namespace SnakeLadderGame
 {
     public class SnakeLadder
     {
-        int Player_Postion=0;
-        int Dice_Roll;
+       public  int Player_Postion=0;
+       public const int NoPlay=0;
+       public const int Ladder = 1;
+       public const int Snake=2;
         Random random =new Random();
         
         // Method to define Player intial Start Position
         public void StartGame()
         {
             Console.WriteLine("The  Start Position of Player is {0}", Player_Postion);
+            int DiceRoll = random.Next(1, 7);
+            int Option=random.Next(0, 3);
+
+            switch (Option)
+            {
+                case Ladder:
+                    Player_Postion += DiceRoll;
+                    break;
+                case Snake:
+                    Player_Postion -= DiceRoll;
+                    break;
+                default:
+                    Player_Postion = Player_Postion;
+                    break;
+            }
+            Console.WriteLine("Current Position of Player = {0}",Player_Postion);
         }
 
-        // method to get Dice No. b/w 1 to 6
-        public void DiceRoll()
-        {
-            Dice_Roll = random.Next(1, 7);
-            Console.WriteLine("The Player rolls the Die & Get A Number is {0}",Dice_Roll);
-        }
+       
+
+        
 
     }
 }
