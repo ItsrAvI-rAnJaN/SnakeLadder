@@ -20,12 +20,15 @@ namespace SnakeLadderGame
             Console.WriteLine("The  Start Position of Player is {0}", Player_Postion);
             int DiceRoll;
             int Option;
+            int NumOfDiceRoll=0;
 
             // Using While to Repeat till Player reaches the Winning Position 100
             while (Player_Postion < 100)
             {
                 DiceRoll = random.Next(1, 7); // to get no b/w 1 to 6
+                NumOfDiceRoll++;
                 Console.WriteLine("Number Get in Die is : {0}", DiceRoll);
+
                 Option = random.Next(0, 3);// to get Ladder Snake or Noplay
                 Console.WriteLine("Current options is : {0}", Option);
                 if (Option == Ladder)
@@ -33,7 +36,7 @@ namespace SnakeLadderGame
                     if ((Player_Postion + DiceRoll) > 100)
                     {
                         Player_Postion = 100;
-
+                        Console.WriteLine("Player At 100th Positon");
                     }
                     else
                     {
@@ -58,6 +61,7 @@ namespace SnakeLadderGame
                     Player_Postion = Player_Postion;
                 }
                 Console.WriteLine("Player Reaches at Winning Position : {0}", Player_Postion);
+                Console.WriteLine("The Number of Times Dice was Played : {0}",NumOfDiceRoll);
 
             }
             /*
